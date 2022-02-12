@@ -19,4 +19,16 @@ class TaskData extends ChangeNotifier {
     // * [notifyListener()] is important to change state (add new task)
     notifyListeners();
   }
+
+  // * using [notifyListeners()] as setState to toggle the task
+  void updateTask(Task task) {
+    task.toggleDone();
+    notifyListeners();
+  }
+
+  // To remove task from [List _tasks]
+  void removeTask(Task task) {
+    _tasks.remove(task);
+    notifyListeners();
+  }
 }

@@ -39,6 +39,12 @@ class AddTaskScreen extends StatelessWidget {
                 onChanged: (newText) {
                   newTaskTitle = newText;
                 },
+                textInputAction: TextInputAction.go,
+                onSubmitted: (newText) {
+                  newTaskTitle = newText;
+                  Provider.of<TaskData>(context, listen: false).addTask(newTaskTitle);
+                  Navigator.pop(context);
+                },
               ),
               const SizedBox(
                 height: 5,
